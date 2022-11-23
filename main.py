@@ -14,6 +14,8 @@ def main():
     # Print first 50 values of each list to verify contents
     print(dictionary[0:50])
     print(aliceWords[0:50])
+    spellCheckAlice_Linear(dictionary)
+    
 # end main()
 
 
@@ -32,10 +34,9 @@ def loadWordsFromFile(fileName):
 main()
 
 
-def spellCheckDictionary_Linear():
+def spellCheckDictionary_Linear(dictionary):
     dictionary_Word = input("Please input the word that you would like to search in the dictionary: ")
     dictionary_Word = dictionary_Word.lower()
-    global dictionary 
     for i in range(len(dictionary)):
         if dictionary[i] == dictionary_Word:
             return dictionary_Word + "is IN the dictionary at position " 
