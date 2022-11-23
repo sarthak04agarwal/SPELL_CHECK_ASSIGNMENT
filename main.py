@@ -32,9 +32,10 @@ def loadWordsFromFile(fileName):
 main()
 
 
-def spellCheckDictionary_Linear(dictionary):
+def spellCheckDictionary_Linear():
     dictionary_Word = input("Please input the word that you would like to search in the dictionary: ")
     dictionary_Word = dictionary_Word.lower()
+    global dictionary 
     for i in range(len(dictionary)):
         if dictionary[i] == dictionary_Word:
             return dictionary_Word + "is IN the dictionary at position " 
@@ -43,12 +44,11 @@ def spellCheckDictionary_Linear(dictionary):
 
 
 
-def spellCheckDictionary_Binary(dictionary):
+def spellCheckDictionary_Binary():
     dictionary_Word = input("Please input the word that you would like to search in the dictionary: ")
     dictionary_Word = dictionary_Word.lower()
     low = 0
     high = len(dictionary) - 1
-    mid = 0
  
     while low <= high:
  
@@ -107,7 +107,7 @@ while running:
     elif selection == "2":
         spellCheckDictionary_Binary()
     elif selection == "3":
-        spellCheckAlice_Linear(aliceWords, dictionary)
+        spellCheckAlice_Linear()
     elif selection == "4":
         spellCheckAlice_Binary()
     else:
