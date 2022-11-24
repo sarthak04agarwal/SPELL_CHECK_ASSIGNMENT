@@ -54,7 +54,6 @@ def spellCheckDictionary_Binary(dictionary):
     high = len(dictionary) - 1
  
     while low <= high:
- 
         mid = (high + low) // 2
         if dictionary[mid] < dictionary_Word:
             low = mid + 1
@@ -66,7 +65,7 @@ def spellCheckDictionary_Binary(dictionary):
             return "Binary Search: " + dictionary_Word + "is IN the dictionary at position " + mid + "."
  
     return "Binary Search: " + dictionary_Word + "is NOT IN the dictionary."
-    
+   
 
 def spellCheckAlice_Linear(dictionary, aliceWords):
     wordNotIncluded = 0
@@ -95,7 +94,7 @@ def spellCheckAlice_Binary(aliceWords, dictionary):
  
     return wordNotIncluded + "words NOT found in the dictionary."
 '''
-main()
+
 menu = "Main Menu\n" + "1: Spell Check a Word (Linear Search)\n" + "2: Spell Check a Word (Binary Search)\n" + "3: Spell Check Alice In Wonderland (Linear Search)\n" + "4: Spell Check Alice In Wonderland (Binary Search)\n" + "5: Exit\n Please type your number: "
 
 running = True
@@ -111,3 +110,5 @@ while running:
         #spellCheckAlice_Binary()
     else:
         loop = False
+
+main()
