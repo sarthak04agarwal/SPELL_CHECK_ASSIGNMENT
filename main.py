@@ -14,9 +14,26 @@ def main():
     # Print first 50 values of each list to verify contents
     print(dictionary[0:50])
     print(aliceWords[0:50])
-    spellCheckDictionary_Linear(dictionary)
-    spellCheckDictionary_Binary(dictionary)
-    spellCheckAlice_Linear(dictionary, aliceWords)
+
+
+    menu = "Main Menu\n" + "1: Spell Check a Word (Linear Search)\n" + "2: Spell Check a Word (Binary Search)\n" + "3: Spell Check Alice In Wonderland (Linear Search)\n" + "4: Spell Check Alice In Wonderland (Binary Search)\n" + "5: Exit\n Please type your number: "
+
+    running = True
+    while running:
+        selection = input(menu)
+    if selection == "1":
+        spellCheckDictionary_Linear(dictionary)
+    elif selection == "2":
+        spellCheckDictionary_Binary(dictionary)
+    elif selection == "3":
+        spellCheckAlice_Linear(dictionary, aliceWords)
+    #elif selection == "4":
+        #spellCheckAlice_Binary(dictionary, aliceWords)
+    else:
+        loop = False
+    
+    
+    
 
 # end main()
 
@@ -93,7 +110,7 @@ def spellCheckAlice_Binary(aliceWords, dictionary):
             wordNotIncluded+= 1
  
     return wordNotIncluded + "words NOT found in the dictionary."
-'''
+
 
 menu = "Main Menu\n" + "1: Spell Check a Word (Linear Search)\n" + "2: Spell Check a Word (Binary Search)\n" + "3: Spell Check Alice In Wonderland (Linear Search)\n" + "4: Spell Check Alice In Wonderland (Binary Search)\n" + "5: Exit\n Please type your number: "
 
@@ -110,5 +127,6 @@ while running:
         #spellCheckAlice_Binary()
     else:
         loop = False
+'''
 
 main()
