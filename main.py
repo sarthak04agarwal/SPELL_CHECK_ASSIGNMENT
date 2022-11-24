@@ -17,7 +17,7 @@ def main():
     spellCheckDictionary_Linear(dictionary)
     spellCheckDictionary_Binary(dictionary)
     spellCheckAlice_Linear(dictionary, aliceWords)
-    spellCheckAlice_Binary(dictionary, aliceWords)   
+
 # end main()
 
 
@@ -33,7 +33,7 @@ def loadWordsFromFile(fileName):
 
 
 # Call main() to begin program
-main()
+
 
 
 def spellCheckDictionary_Linear(dictionary):
@@ -95,7 +95,7 @@ def spellCheckAlice_Binary(aliceWords, dictionary):
  
     return wordNotIncluded + "words NOT found in the dictionary."
 '''
-
+main()
 menu = "Main Menu\n" + "1: Spell Check a Word (Linear Search)\n" + "2: Spell Check a Word (Binary Search)\n" + "3: Spell Check Alice In Wonderland (Linear Search)\n" + "4: Spell Check Alice In Wonderland (Binary Search)\n" + "5: Exit\n Please type your number: "
 
 running = True
@@ -107,7 +107,7 @@ while running:
         spellCheckDictionary_Binary()
     elif selection == "3":
         spellCheckAlice_Linear()
-    elif selection == "4":
-        spellCheckAlice_Binary()
+    #elif selection == "4":
+        #spellCheckAlice_Binary()
     else:
         loop = False
