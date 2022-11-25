@@ -27,14 +27,11 @@ def main():
         spellCheckDictionary_Binary(dictionary)
     elif selection == "3":
         spellCheckAlice_Linear(dictionary, aliceWords)
-    #elif selection == "4":
-        #spellCheckAlice_Binary(dictionary, aliceWords)
+    elif selection == "4":
+        spellCheckAlice_Binary(dictionary, aliceWords)
     else:
-        loop = False
-    
-    
-    
-
+        running = False
+        return main()
 # end main()
 
 
@@ -56,11 +53,11 @@ def loadWordsFromFile(fileName):
 def spellCheckDictionary_Linear(dictionary):
     dictionary_Word = input("Please input the word that you would like to search in the dictionary: ")
     dictionary_Word = dictionary_Word.lower()
-    for i in range(len(dictionary)):
+    for i in range(len(dictionary-1)):
         if dictionary[i] == dictionary_Word:
-            return "Linear Seach: " + dictionary_Word + "is IN the dictionary at position " 
-            
-    return "Linear Search: " + dictionary_Word + "is NOT IN the dictionary."
+            print("Linear Seach: " + dictionary_Word + "is IN the dictionary at position " + i) 
+        
+        print("Linear Search: " + dictionary_Word + "is NOT IN the dictionary.")
 
 
 
@@ -79,54 +76,37 @@ def spellCheckDictionary_Binary(dictionary):
             high = mid - 1
  
         else:
-            return "Binary Search: " + dictionary_Word + "is IN the dictionary at position " + mid + "."
+            print("Binary Search: " + dictionary_Word + "is IN the dictionary at position " + mid + ".")
  
-    return "Binary Search: " + dictionary_Word + "is NOT IN the dictionary."
+    print("Binary Search: " + dictionary_Word + "is NOT IN the dictionary.")
    
 
 def spellCheckAlice_Linear(dictionary, aliceWords):
     wordNotIncluded = 0
     for x in range(len(aliceWords)):
-        if aliceWords[x] not in dictionary:
+        if aliceWords.lower[x] not in dictionary:
             wordNotIncluded+= 1
-    return "Linear Search" + wordNotIncluded + "words NOT found in the dictionary."
+    print("Linear Search" + wordNotIncluded + "words NOT found in the dictionary.")
 
-'''
+
 def spellCheckAlice_Binary(aliceWords, dictionary):
-    low = 0
-    high = len(aliceWords) - 1
-    mid = 0
     wordNotIncluded = 0 
-    while low <= high:
+    for x in range(len(aliceWords)):
+        low = 0
+        high = len(dictionary) - 1
+    
+        wordNotIncluded = 0 
+        while low <= high:
  
-        mid = (high + low) // 2
-        if dictionary[mid] < :
-            low = mid + 1
+            mid = (high + low) // 2
+            if dictionary[mid] < aliceWords.lower[x]:
+                low = mid + 1
  
-        elif dictionary[mid] > dictionary_Word:
-            high = mid - 1
+            elif dictionary[mid] > aliceWords.lower[x]:
+                high = mid - 1
  
-        else:
-            wordNotIncluded+= 1
- 
-    return wordNotIncluded + "words NOT found in the dictionary."
-
-
-menu = "Main Menu\n" + "1: Spell Check a Word (Linear Search)\n" + "2: Spell Check a Word (Binary Search)\n" + "3: Spell Check Alice In Wonderland (Linear Search)\n" + "4: Spell Check Alice In Wonderland (Binary Search)\n" + "5: Exit\n Please type your number: "
-
-running = True
-while running:
-    selection = input(menu)
-    if selection == "1":
-        spellCheckDictionary_Linear()
-    elif selection == "2":
-        spellCheckDictionary_Binary()
-    elif selection == "3":
-        spellCheckAlice_Linear()
-    #elif selection == "4":
-        #spellCheckAlice_Binary()
-    else:
-        loop = False
-'''
-
+            else:
+                wordNotIncluded+= 1
+    print(wordNotIncluded + "words NOT found in the dictionary.")
+    
 main()
