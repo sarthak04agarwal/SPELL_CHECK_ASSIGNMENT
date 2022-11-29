@@ -4,7 +4,7 @@
 # 2: aliceWords: a list containing all of the words from "AliceInWonderland.txt"
 
 import re  # Needed for splitting text with a regular expression
-
+import time
 
 def main():
     # Load data files into lists
@@ -49,17 +49,23 @@ def loadWordsFromFile(fileName):
 
 # Takes in dictionary and asks the user for a input value, and then uses Linear Search to see if the value is in the Dictionary
 def spellCheckDictionary_Linear(dictionary):
+    start = time.time()
     dictionary_Word = input("Please input the word that you would like to search in the dictionary: ")
     dictionary_Word = dictionary_Word.lower()
     for i in range(len(dictionary)):
         if dictionary[i] == dictionary_Word:
-            return ('Linear Search: "' + dictionary_Word + '" is IN the dictionary at position ' + str(i)) 
-       
-    return ('Linear Search: "' + dictionary_Word + '" is NOT IN the dictionary.')
+            end = time.time()
+            time_Elapsed = end - start
+            return ('Linear Search: "' + dictionary_Word + '" is IN the dictionary at position ' + str(i)) + ". (" + str(time_Elapsed) + "s)"
+    
+    end =  time.time()
+    time_Elapsed = end - start
+    return ('Linear Search: "' + dictionary_Word + '" is NOT IN the dictionary.') + " (" + str(time_Elapsed) + "s)"
 
 
 # Takes in dictionary and asks the user for a input value, and then uses Binary Search to see if the value is in the Dictionary
 def spellCheckDictionary_Binary(dictionary):
+    start = time.time()
     dictionary_Word = input("Please input the word that you would like to search in the dictionary: ")
     dictionary_Word = dictionary_Word.lower()
     low = 0
@@ -74,27 +80,39 @@ def spellCheckDictionary_Binary(dictionary):
             high = mid - 1
  
         else:
-            return ('Binary Search: "' + dictionary_Word + '" is IN the dictionary at position ' + str(mid) + ".")
- 
-    return ('Binary Search: "' + dictionary_Word + '" is NOT IN the dictionary.')
+            end = time.time()
+            time_Elapsed = end - start
+            return ('Binary Search: "' + dictionary_Word + '" is IN the dictionary at position ' + str(mid) + ".") + " (" + str(time_Elapsed) + "s)"
+    end = time.time()
+    time_Elapsed = end - start
+    return ('Binary Search: "' + dictionary_Word + '" is NOT IN the dictionary.') + " (" + str(time_Elapsed) + "s)"
    
 # Takes in aliceWords and dictionary and uses a Linear Search to search how many of the words from aliceWords are not found in the Dictionary
 def spellCheckAlice_Linear(dictionary, aliceWords):
+    start = time.time()
     wordNotIncluded = 0
     for i in range(len(aliceWords)):
         aliceWords[i] = aliceWords[i].lower()
+
     print ("Running, Please wait...")
+    
     for x in range(len(aliceWords)):
         if aliceWords[x] not in dictionary:
             wordNotIncluded+= 1
-    return ('Linear Search: "' + str(wordNotIncluded) + '" words NOT found in the dictionary.')
+    end = time.time()
+    time_Elapsed = end - start
+    return ('Linear Search: "' + str(wordNotIncluded) + '" words NOT found in the dictionary.') + " (" + str(time_Elapsed) + "s)"
+
 
 # Takes in aliceWords and dictionary and uses a Binary Search to search how many of the words from aliceWords are not found in the Dictionary
 def spellCheckAlice_Binary(aliceWords, dictionary):
+    start = time.time()
     wordNotIncluded = 0 
     for i in range(len(aliceWords)):
         aliceWords[i] = aliceWords[i].lower()
+
     print ("Running, Please wait...")
+    
     for x in range(len(aliceWords)):
         low = 0
         high = len(dictionary) - 1
@@ -111,7 +129,9 @@ def spellCheckAlice_Binary(aliceWords, dictionary):
  
             else:
                 wordNotIncluded+= 1
-    return ('Binary Search: "' + str(wordNotIncluded) + '" words NOT found in the dictionary.')
+    end = time.time()
+    time_Elapsed = end - start
+    return ('Binary Search: "' + str(wordNotIncluded) + '" words NOT found in the dictionary.') + + " (" + str(time_Elapsed) + "s)"
 
 
 # Call main() to begin program
