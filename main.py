@@ -21,16 +21,16 @@ def main():
     running = True
     while running:
         selection = input(menu)
-    if selection == "1":
-        spellCheckDictionary_Linear(dictionary)
-    elif selection == "2":
-        spellCheckDictionary_Binary(dictionary)
-    elif selection == "3":
-        spellCheckAlice_Linear(dictionary, aliceWords)
-    elif selection == "4":
-        spellCheckAlice_Binary(dictionary, aliceWords)
-    else:
-        running = False
+        if selection == "1":
+            spellCheckDictionary_Linear(dictionary)
+        elif selection == "2":
+            spellCheckDictionary_Binary(dictionary)
+        elif selection == "3":
+            spellCheckAlice_Linear(dictionary, aliceWords)
+        elif selection == "4":
+            spellCheckAlice_Binary(dictionary, aliceWords)
+        else:
+            running = False
 # end main()
 
 
@@ -56,7 +56,7 @@ def spellCheckDictionary_Linear(dictionary):
         if dictionary[i] == dictionary_Word:
             print("Linear Seach: " + dictionary_Word + "is IN the dictionary at position " + i) 
         
-        print("Linear Search: " + dictionary_Word + "is NOT IN the dictionary.")
+    print("Linear Search: " + dictionary_Word + "is NOT IN the dictionary.")
 
 
 # Takes in dictionary and asks the user for a input value, and then uses Binary Search to see if the value is in the Dictionary
@@ -75,9 +75,9 @@ def spellCheckDictionary_Binary(dictionary):
             high = mid - 1
  
         else:
-            print("Binary Search: " + dictionary_Word + "is IN the dictionary at position " + mid + ".")
+            print("Binary Search: " + dictionary_Word + "is IN the dictionary at position " + str(mid) + ".")
  
-    print("Binary Search: " + dictionary_Word + "is NOT IN the dictionary.")
+    print("Binary Search: " + dictionary_Word + " is NOT IN the dictionary.")
    
 # Takes in aliceWords and dictionary and uses a Linear Search to search how many of the words from aliceWords are not found in the Dictionary
 def spellCheckAlice_Linear(dictionary, aliceWords):
