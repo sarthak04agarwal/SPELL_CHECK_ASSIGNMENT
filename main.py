@@ -94,7 +94,7 @@ def spellCheckAlice_Binary(aliceWords, dictionary):
     wordNotIncluded = 0 
     for i in range(len(aliceWords)):
         aliceWords[i] = aliceWords[i].lower()
-
+    print ("Running, Please wait...")
     for x in range(len(aliceWords)):
         low = 0
         high = len(dictionary) - 1
