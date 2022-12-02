@@ -56,11 +56,11 @@ def spellCheckDictionary_Linear(dictionary):
         if dictionary[i] == dictionary_Word:
             end = time.time()
             time_Elapsed = end - start
-            return ('Linear Search: "' + dictionary_Word + '" is IN the dictionary at position ' + str(i)) + ". (" + str(time_Elapsed) + "s)"
+            return ('Linear Search: "' + dictionary_Word + '" is IN the dictionary at position ' + str(i)) + " (" + str(time_Elapsed) + "s)"
     
     end =  time.time()
     time_Elapsed = end - start
-    return ('Linear Search: "' + dictionary_Word + '" is NOT IN the dictionary.') + " (" + str(time_Elapsed) + "s)"
+    return ('Linear Search: "' + dictionary_Word + '" is NOT IN the dictionary') + " (" + str(time_Elapsed) + "s)"
 
 
 # Takes in dictionary and asks the user for a input value, and then uses Binary Search to see if the value is in the Dictionary
@@ -113,9 +113,8 @@ def spellCheckAlice_Binary(aliceWords, dictionary):
 
     print ("Running, Please wait...")
     
-    for i in range(len(aliceWords)):
-        currentItem = aliceWords[i]
-        wordsIncluded = 0
+    for j in range(len(aliceWords)):
+        currentItem = aliceWords[j]
         low = 0
         high = len(dictionary) - 1
  
@@ -125,16 +124,15 @@ def spellCheckAlice_Binary(aliceWords, dictionary):
                 low = mid + 1
  
             elif dictionary[mid] > currentItem:
-                high = mid - 1
-            else:
-                wordsIncluded = wordsIncluded + 1                
-        print("Here")     
-        wordNotIncluded = wordNotIncluded + 1
-        
+                high = mid - 1        
+            else: 
+                continue
+        wordNotIncluded+=1
+
     end = time.time()
     time_Elapsed = end - start
-    return ('Binary Search: "' + str(wordNotIncluded) + '" words NOT found in the dictionary.') + + " (" + str(time_Elapsed) + "s)"
-
+    return ('Binary Search: "' + str(wordNotIncluded) + '" words NOT found in the dictionary.') + " (" + str(time_Elapsed) + "s)"
+    
 
 # Call main() to begin program
 main()
