@@ -128,10 +128,9 @@ def spellCheckAlice_Binary(aliceWords, dictionary):
                 high = mid - 1
             else:
                 wordsIncluded = wordsIncluded + 1                
-                
+        print("Here")     
         wordNotIncluded = wordNotIncluded + 1
-                
-
+        
     end = time.time()
     time_Elapsed = end - start
     return ('Binary Search: "' + str(wordNotIncluded) + '" words NOT found in the dictionary.') + + " (" + str(time_Elapsed) + "s)"
