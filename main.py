@@ -111,6 +111,7 @@ def spellCheckAlice_Binary(dictionary, aliceWords):
     for i in range(len(aliceWords)):
         aliceWords[i] = aliceWords[i].lower()
 
+    '''
     item = aliceWords[i]
     low = 0
     high = len(dictionary) - 1
@@ -125,11 +126,30 @@ def spellCheckAlice_Binary(dictionary, aliceWords):
         else:
             return (str(mid) + ("OK") + str(i) + "we" + str(len(dictionary)) + "w" + str(len(aliceWords)))
  
-    return -1
+    wordNotIncluded +=1 
+    continue
+
     end = time.time()
     time_Elapsed = end - start
     return ('Linear Search: "' + str(wordNotIncluded) + '" words NOT found in the dictionary.') + " (" + str(time_Elapsed) + "s)"
+    '''
+    for aliceWords in dictionary:
+        low = 0
+        high = len(dictionary) - 1
+        while low <= high:
+            mid = (lb + ub) // 2
+            if secondList[mid] == word:
+                found = True
+            break
+        elif secondList[mid] < word:
+            lb = mid + 1
+        else:
+            ub = mid - 1
 
+    if found:
+        present.append(word)
+    else:
+        absent.append(word)
 
 # Call main() to begin program
 main()
