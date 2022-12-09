@@ -90,27 +90,61 @@ def spellCheckDictionary_Binary(dictionary):
 # Takes in aliceWords and dictionary and uses a Linear Search to search how many of the words from aliceWords are not found in the Dictionary
 def spellCheckAlice_Linear(dictionary, aliceWords):
     start = time.time()
-    wordNotIncluded = 0
+    wordIncluded = 0
     for i in range(len(aliceWords)):
         aliceWords[i] = aliceWords[i].lower()
 
     print ("Running, Please wait...")
     
-    for x in range(len(aliceWords)):
-        if aliceWords[x] not in dictionary:
-            wordNotIncluded+= 1
+    for x in (aliceWords):
+        for y in range(len(dictionary)-1):
+            if x == dictionary[y]:
+                wordIncluded+= 1
     end = time.time()
     time_Elapsed = end - start
-    return ('Linear Search: "' + str(wordNotIncluded) + '" words NOT found in the dictionary.') + " (" + str(time_Elapsed) + "s)"
+    return ('Linear Search: "' + str(len(aliceWords) - (wordIncluded)) + '" words NOT found in the dictionary.') + " (" + str(time_Elapsed) + "s)"
 
 
 # Takes in aliceWords and dictionary and uses a Binary Search to search how many of the words from aliceWords are not found in the Dictionary
-def spellCheckAlice_Binary(dictionary, aliceWords):
+def spellCheckAlice_Binary(dictionary,aliceWords):
     start = time.time()
-    wordNotIncluded = 0 
     for i in range(len(aliceWords)):
         aliceWords[i] = aliceWords[i].lower()
+    
+    present = 0
+    absent = 0
+    for word in aliceWords:
+        low = 0 
+        high = len(dictionary) - 1
+        found = False
+        while low <= high:
+            mid = (low + high) // 2
+            if dictionary[mid] < word:
+                low = mid + 1
+            elif dictionary[mid] > word:
+                high = mid - 1
+            else:
+                found = True
+                break
+                
 
+        if found:
+            present=present+1
+        else:
+            absent=absent+1
+
+    end = time.time()
+    time_Elapsed = end - start
+    return  ('Binary Search: "' + str(absent) + '" words NOT found in the dictionary.') + " (" + str(time_Elapsed) + "s)"
+   
+
+# Call main() to begin program
+main()
+
+
+
+
+'''
     item = aliceWords[i]
     low = 0
     high = len(dictionary) - 1
@@ -125,11 +159,10 @@ def spellCheckAlice_Binary(dictionary, aliceWords):
         else:
             return (str(mid) + ("OK") + str(i) + "we" + str(len(dictionary)) + "w" + str(len(aliceWords)))
  
-    return -1
+    wordNotIncluded +=1 
+    continue
+
     end = time.time()
     time_Elapsed = end - start
     return ('Linear Search: "' + str(wordNotIncluded) + '" words NOT found in the dictionary.') + " (" + str(time_Elapsed) + "s)"
-
-
-# Call main() to begin program
-main()
+    '''
