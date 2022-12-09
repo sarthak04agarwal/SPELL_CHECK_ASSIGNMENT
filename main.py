@@ -90,19 +90,21 @@ def spellCheckDictionary_Binary(dictionary):
 # Takes in aliceWords and dictionary and uses a Linear Search to search how many of the words from aliceWords are not found in the Dictionary
 def spellCheckAlice_Linear(dictionary, aliceWords):
     start = time.time()
-    wordIncluded = 0
+    wordNotIncluded = 0
     for i in range(len(aliceWords)):
         aliceWords[i] = aliceWords[i].lower()
 
     print ("Running, Please wait...")
     
-    for x in (aliceWords):
-        for y in range(len(dictionary)-1):
-            if x == dictionary[y]:
-                wordIncluded+= 1
+    
+    for i in range(len(aliceWords)):
+        for x in range(len(dictionary)):
+            if dictionary[x] == aliceWords[i]:
+                wordNotIncluded +=1 
+                           
     end = time.time()
     time_Elapsed = end - start
-    return ('Linear Search: "' + str(len(aliceWords) - (wordIncluded)) + '" words NOT found in the dictionary.') + " (" + str(time_Elapsed) + "s)"
+    return ('Linear Search: "' + str(len(aliceWords) - (wordNotIncluded)) + '" words NOT found in the dictionary.') + " (" + str(time_Elapsed) + "s)"
 
 
 # Takes in aliceWords and dictionary and uses a Binary Search to search how many of the words from aliceWords are not found in the Dictionary
