@@ -138,6 +138,7 @@ def spellCheckAlice_Binary(dictionary,aliceWords):
     return  ('Binary Search: "' + str(absent) + '" words NOT found in the dictionary.') + " (" + str(time_Elapsed) + "s)"
    
 
+
 # Call main() to begin program
 main()
 
